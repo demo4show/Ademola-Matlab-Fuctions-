@@ -1,2 +1,2 @@
 # Ademola-Matlab-Fuctions-
-Creating this functions to contribute my quota in science 
+Creating this functions to contribute my quota to science 
