@@ -1,0 +1,38 @@
+This is a matlab code
+It begins with a function called planckT and the subsequent code to be created as a ne w file.
+
+
+function [R,x,y,z,a,b,j] = planckT(h,k,c,lambda,T)
+        x = 8.*pi.*c.*h;
+        y = lambda.^5;
+        z = (T.*lambda).*k;
+        a = h.*c;
+        b = exp(a./z);
+        j = b - 1;
+        R = x./(y.*j);
+end
+
+c = 3e8;
+h = 6.626e-34;
+k = 1.38e-23;
+T = 1000:1000:6000;
+lambda = (10:10:2000).*1e-9;
+lambda = lambda';
+[R,z] = planckT(h,k,c,lambda,T);
+R = R(:,:);
+plot (lambda,R(:,1),"k",'LineWidth',2)
+hold on
+plot (lambda,R(:,2),"y",'LineWidth',2)
+%hold on
+plot (lambda,R(:,3),"g",'LineWidth',2)
+hold on
+plot (lambda,R(:,4),"r",'LineWidth',2)
+hold on
+plot (lambda,R(:,5),"c",'LineWidth',2)
+hold on
+plot (lambda,R(:,6),"b",'LineWidth',2)
+hold off
+legend("1000K","2000K","3000K","4000K","5000K","6000K")
+title("Black Body Planck's Law")
+xlabel("Wavelength (microns)")
+ylabel("Radiance (W/m^3/sr)")
